@@ -34,11 +34,12 @@ for _ in range(TOTAL_QUESTIONS):
     num2 = random.randint(1, MAX_NUMBER)
     correct_answer = make_question(num1, operator, num2)
 
-    try:
-        user_answer = int(input('Please enter the answer: '))
-    except ValueError:
-        print('Please enter a number only')
-        continue
+    while True:
+        try:
+            user_answer = int(input('Please enter the answer: '))
+            break
+        except ValueError:
+            print('Please enter a number only')
 
     is_correct = check_answer(user_answer, correct_answer)
 
